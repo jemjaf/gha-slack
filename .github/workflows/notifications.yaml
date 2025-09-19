@@ -12,36 +12,13 @@ jobs:
     steps:
       - run: echo "Workflow triggered"
 
-    #   - name: Slack Notification Triggered
-    #     uses: slackapi/slack-github-action@v2.1.1
-    #     with:
-    #       webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-    #       webhook-type: incoming-webhook
-    #       payload: |
-    #         text: "🚀 Workflow triggered"
-    #         blocks:
-    #           - type: "section"
-    #             text:
-    #               type: "mrkdwn"
-    #               text: "🚀 *Branch triggered*\n\n"
-    #           - type: "section"
-    #             fields:
-    #               - type: "mrkdwn"
-    #                 text: "*Branch:*\n`${{ github.ref_name }}`\n"
-    #               - type: "mrkdwn"
-    #                 text: "*Actor:*\n`${{ github.actor }}`\n"
-
+      - name: Slack Notification Triggered
+        uses: slackapi/slack-github-action@v2.1.1
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "Greetings!"
+      
       - run: echo "Workflow finished"
 
-    #   - name: Slack Notification Finished
-    #     uses: slackapi/slack-github-action@v2.1.1
-    #     with:
-    #       webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-    #       webhook-type: incoming-webhook
-    #       payload: |
-    #         text: "🚀 Workflow finished"
-    #         blocks:
-    #           - type: "section"
-    #             text:
-    #               type: "mrkdwn"
-    #               text: "🚀 *Pipeline finished*\n\n"
